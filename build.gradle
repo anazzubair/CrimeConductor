@@ -1,0 +1,64 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext {
+        kotlin_version              = "1.2.30"
+        mosby_version               = "3.1.0"
+        conductor_version           = "2.1.4"
+        timber_version              = "4.6.0"
+        rxJava_version              = "2.1.6"
+        rxAndroid_version           = "2.0.1"
+        butterKnife_version         = "8.8.1"
+        supportLibrary_version      = "27.1.0"
+        constraintLayout_version    = "1.0.2"
+        supportTestRunner_version   = "1.0.1"
+        junit_version               = "4.12"
+        espressoCore_version        = "3.0.1"
+        jvmTarget                   = "1.8"
+        anko_version                = "0.10.4"
+
+
+        libs = [
+                appCompat           : "com.android.support:appcompat-v7:$supportLibrary_version",
+                recyclerView        : "com.android.support:recyclerview-v7:$supportLibrary_version",
+                rxJava              : "io.reactivex.rxjava2:rxjava:$rxJava_version",
+                rxAndroid           : "io.reactivex.rxjava2:rxandroid:$rxAndroid_version",
+                timber              : "com.jakewharton.timber:timber:$timber_version",
+                conductor           : "com.bluelinelabs:conductor:$conductor_version",
+                mosby               : "com.hannesdorfmann.mosby3:mvp:$mosby_version",
+                mosbyConductor      : "com.hannesdorfmann.mosby3:mvp-conductor:$mosby_version",
+                butterKnife         : "com.jakewharton:butterknife:$butterKnife_version",
+                butterKnifeCompiler : "com.jakewharton:butterknife-compiler:$butterKnife_version",
+                kotlin              : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+                constraintLayout    : "com.android.support.constraint:constraint-layout:$constraintLayout_version",
+                supportTestRunner   : "com.android.support.test:runner:$supportTestRunner_version",
+                junit               : "junit:junit:$junit_version",
+                espressoCore        : "com.android.support.test.espresso:espresso-core:$espressoCore_version",
+                ankoCommon          : "org.jetbrains.anko:anko-commons:$anko_version",
+        ]
+    }
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

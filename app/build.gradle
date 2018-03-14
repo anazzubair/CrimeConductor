@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.anazzubair.crimeconductor"
+        minSdkVersion 22
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libs.kotlin
+    implementation libs.ankoCommon
+
+    implementation libs.appCompat
+    implementation libs.recyclerView
+    implementation libs.constraintLayout
+
+    //implementation libs.butterKnife
+    //kapt libs.butterKnifeCompiler
+
+    implementation libs.conductor
+    implementation libs.mosby
+    implementation libs.mosbyConductor
+
+    testImplementation libs.junit
+    androidTestImplementation libs.supportTestRunner
+    androidTestImplementation libs.espressoCore
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = rootProject.jvmTarget
+    }
+}
