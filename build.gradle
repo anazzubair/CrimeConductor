@@ -3,6 +3,7 @@
 buildscript {
 
     ext {
+        android_plugin_version      = "3.0.1"
         kotlin_version              = "1.2.30"
         mosby_version               = "3.1.0"
         conductor_version           = "2.1.4"
@@ -17,6 +18,8 @@ buildscript {
         espressoCore_version        = "3.0.1"
         jvmTarget                   = "1.8"
         anko_version                = "0.10.4"
+        firebase_version            = "11.8.0"
+        google_services_version     = "3.2.0"
 
 
         libs = [
@@ -36,6 +39,8 @@ buildscript {
                 junit               : "junit:junit:$junit_version",
                 espressoCore        : "com.android.support.test.espresso:espresso-core:$espressoCore_version",
                 ankoCommon          : "org.jetbrains.anko:anko-commons:$anko_version",
+                firebaseCore        : "com.google.firebase:firebase-core:$firebase_version",
+                databinding         : "com.android.databinding:compiler:$android_plugin_version",
         ]
     }
 
@@ -44,8 +49,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath "com.android.tools.build:gradle:$android_plugin_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.gms:google-services:$google_services_version"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
